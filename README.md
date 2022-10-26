@@ -11,10 +11,11 @@ This project uses a medium clone web application https://demo.realworld.io/#/
 
 
 ## Tools and Libraries
-This project using 2 main tools, Selenium and Cucumber.
-Other tools include - Maven, Log4J, Extent Reports, Faker, etc.
-On the other hand, I using some of the tools that support this great framework.
-The complete list of tools, you can see in the `pom.xml` file.
+* This project uses 2 main tools, Selenium and Cucumber.
+* We are using [WebDriverManager](https://bonigarcia.dev/webdrivermanager/)
+* [WebDriverManager](https://bonigarcia.dev/webdrivermanager/) is an open-source Java library that carries out the management (i.e., download, setup, and maintenance) of the drivers required by [Selenium WebDriver] (https://www.selenium.dev/documentation/webdriver/) (e.g., chromedriver, geckodriver, msedgedriver, etc.) in a fully automated manner
+* Other tools include - Maven, Log4J, Extent Reports, Faker, etc.
+* The complete list of tools, you can see in the `pom.xml` file.
 
 ## Requirements
 * Java Development Kit
@@ -41,6 +42,7 @@ $ mvn clean install -Dcucumber.filter.tags="@REPLACE_WITH_ANY_TAGS_THAT_YOU_WANT
 cucumber.publish.enabled=true
 ```
 * For more information about reports cucumber you can go to https://reports.cucumber.io/docs/cucumber-jvm
+* For every failing test a screenshot will be captured and saved under 'reports/screenshots' folder
 
 ---
 
