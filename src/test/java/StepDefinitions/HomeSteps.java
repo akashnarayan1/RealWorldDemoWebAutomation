@@ -2,10 +2,10 @@ package StepDefinitions;
 
 import PageObjects.ArticlePage;
 import PageObjects.HomePage;
+import Utilities.AccessibilityTestUtility;
 import Utilities.TestContext;
 
 import Utilities.Wait;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -24,6 +25,8 @@ public class HomeSteps {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeSteps.class);
 
     TestContext testContext;
+
+    AccessibilityTestUtility accessibilityTestUtility;
 
     HomePage homePage;
 
@@ -36,6 +39,7 @@ public class HomeSteps {
         homePage = testContext.getPageObjectManager().getHomePage();
         articlePage = testContext.getPageObjectManager().getArticlePage();
         webDriver = testContext.getDriverManager().getDriver();
+        accessibilityTestUtility = new AccessibilityTestUtility(webDriver);
     }
 
     @Given("^I am on the home page$")
@@ -94,5 +98,11 @@ public class HomeSteps {
                 found = false;
             }
         }
+    }
+
+    @And("I run accessibility testing on {string} page")
+    public void iRunAccessibilityTestingOnPage(String page) throws FileNotFoundException {
+        //To-Do handle page input
+        accessibilityTestUtility.accessibilityTest(page);
     }
 }
